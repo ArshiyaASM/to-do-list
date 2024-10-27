@@ -66,7 +66,6 @@ function remove(){
             for(let i of items){
                 if(i.text == content){
                     items.splice(items.indexOf(i), 1);
-                    console.log(items)
                 }
             }
             localStorage.setItem("items",JSON.stringify(items));

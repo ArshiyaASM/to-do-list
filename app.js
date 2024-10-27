@@ -25,16 +25,19 @@ if(localStorage.key("items")){
 
 
 button.addEventListener("click" , e=>{
-    const jsObj = {
+    if(input.value != ""){
+        const jsObj = {
         "text" : input.value,
         "checked" : false
+        }
+        items.push(jsObj)
+        to_do_list.innerHTML += `<li><p>${input.value}</p><i class = "fa fa-remove"></i></li>`
+        localStorage.setItem("items",JSON.stringify(items));
+        input.value = "";
+        done();
+        remove();
     }
-    items.push(jsObj)
-    to_do_list.innerHTML += `<li><p>${input.value}</p><i class = "fa fa-remove"></i></li>`
-    localStorage.setItem("items",JSON.stringify(items));
-    input.value = "";
-    done();
-    remove();
+    
 })
 
 
